@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Base64 Encoding and Decoding</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      color: #333;
+    }
+
+    .container {
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      max-width: 600px;
+      width: 90%;
+      text-align: center;
+      backdrop-filter: blur(10px);
+    }
+
+    h1 {
+      color: #444;
+      margin-bottom: 20px;
+      font-size: 28px;
+      font-weight: 600;
+    }
+
+    textarea {
+      width: 100%;
+      height: 120px;
+      padding: 15px;
+      border: 2px solid #ddd;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      font-size: 16px;
+      resize: none;
+      transition: border-color 0.3s ease;
+    }
+
+    textarea:focus {
+      border-color: #6a11cb;
+      outline: none;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    button {
+      background-color: #6a11cb;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 25px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    button:hover {
+      background-color: #2575fc;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    button:active {
+      transform: translateY(0);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .result {
+      margin-top: 20px;
+      padding: 15px;
+      background-color: #f1f1f1;
+      border-radius: 10px;
+      word-wrap: break-word;
+      font-size: 16px;
+      color: #555;
+    }
+
+    .adsense {
+      margin-top: 30px;
+      text-align: center;
+    }
+
+    footer {
+      margin-top: 30px;
+      font-size: 14px;
+      color: #2fce5f;
+    }
+
+    footer a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Base64 Encoding and Decoding</h1>
+
+    <!-- Input Section -->
+    <textarea id="inputText" placeholder="Enter text to encode or decode..."></textarea>
+
+    <!-- Buttons -->
+    <div class="buttons">
+      <button onclick="encodeBase64()">
+        <i class="fas fa-lock"></i> Encode to Base64
+      </button>
+      <button onclick="decodeBase64()">
+        <i class="fas fa-lock-open"></i> Decode from Base64
+      </button>
+    </div>
+
+    <!-- Result Section -->
+    <div class="result" id="result"></div>
+
+    <!-- Google AdSense -->
+    <div class="adsense">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2905008850684807"
+        crossorigin="anonymous"></script>
+      <!-- Ad Unit -->
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-YOUR_AD_CLIENT_ID"
+           data-ad-slot="YOUR_AD_SLOT_ID"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>
+           (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <p>Thank You  ❤️ </p>
+    </footer>
+  </div>
+
+  <script>
+    function encodeBase64() {
+      const input = document.getElementById('inputText').value;
+      const encoded = btoa(input);
+      document.getElementById('result').innerText = encoded;
+    }
+
+    function decodeBase64() {
+      const input = document.getElementById('inputText').value;
+      try {
+        const decoded = atob(input);
+        document.getElementById('result').innerText = decoded;
+      } catch (e) {
+        document.getElementById('result').innerText = 'Invalid Base64 input!';
+      }
+    }
+  </script>
+</body>
+</html>
